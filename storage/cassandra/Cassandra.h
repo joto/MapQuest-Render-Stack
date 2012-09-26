@@ -7,7 +7,6 @@
 #ifndef Cassandra_H
 #define Cassandra_H
 
-#include <stdint.h>
 #include <thrift/TDispatchProcessor.h>
 #include "cassandra_types.h"
 

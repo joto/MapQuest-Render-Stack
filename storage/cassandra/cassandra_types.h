@@ -7,7 +7,6 @@
 #ifndef cassandra_TYPES_H
 #define cassandra_TYPES_H
 
-#include <stdint.h>
 #include <thrift/Thrift.h>
 #include <thrift/TApplicationException.h>
 #include <thrift/protocol/TProtocol.h>
