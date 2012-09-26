@@ -40,12 +40,12 @@ namespace rendermq
 namespace
 {
 
-tile_storage * create_cassandra_storage(boost::property_tree::ptree const& pt,
-                                        boost::optional<zmq::context_t &> ctx)
+tile_storage* create_cassandra_storage(boost::property_tree::ptree const& pt,
+                                       boost::optional<zmq::context_t &> ctx)
 {
-   std::string server = pt.get<std::string>("server");
-   int port = pt.get<int>("port");
-   std::string keyspace_prefix = pt.get<std::string>("keyspace_prefix");
+   std::string server = pt.get<std::string>("server", "127.0.0.1");
+   int port = pt.get<int>("port", 9160);
+   std::string keyspace_prefix = pt.get<std::string>("keyspace_prefix", "tiles_");
    return new cassandra_storage(server, port, keyspace_prefix);
 }
 
