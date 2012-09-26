@@ -70,9 +70,10 @@ librendermq_storage_la_SOURCES = \
 	storage/http_storage.cpp \
 	storage/disk_storage.cpp \
 	storage/memcached_storage.cpp \
+	storage/cassandra_storage.cpp storage/cassandra/cassandra_constants.cpp storage/cassandra/cassandra_types.cpp storage/cassandra/Cassandra.cpp \
 	storage/lts_storage.cpp 
-librendermq_storage_la_CPPFLAGS = $(DEPS_CFLAGS) $(BOOST_CPPFLAGS)
-librendermq_storage_la_LIBADD = $(DEPS_LIBS) $(BOOST_LIBS) librendermq_proto.la librendermq_http.la
+librendermq_storage_la_CPPFLAGS = $(DEPS_CFLAGS) $(BOOST_CPPFLAGS) -I/usr/local/include/thrift
+librendermq_storage_la_LIBADD = $(DEPS_LIBS) $(BOOST_LIBS) librendermq_proto.la librendermq_http.la -lthrift
 
 tile_handler_SOURCES = \
 	mongrel_request.cpp \
