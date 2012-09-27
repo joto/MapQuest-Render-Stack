@@ -10,10 +10,7 @@ build it yourself.
 
 Make sure you have all the dependencies. See http://thrift.apache.org/docs/install/
 
-The current release of thrift does not work, you'll have to use the SVN version.
-
-Unless it has already been integrated you have to apply the patch in this ticket:
-https://issues.apache.org/jira/browse/THRIFT-1703
+The current (0.8.0) release of thrift does not work, you'll have to use the SVN version.
 
  svn checkout http://svn.apache.org/repos/asf/thrift/trunk thrift-trunk
  cd thrift-trunk
@@ -41,6 +38,12 @@ source distribution. Find the "interface" directory inside it and go to it
 and then call 
 
 thrift --gen cpp cassandra.thrift
+
+Unfortunately there is a conflict between the VERSION setting of Cassandra
+and the VERSION macro in the Render Stack, so you have to rename the VERSION
+string in cassandra_constants.cpp/.h.
+
+See https://issues.apache.org/jira/browse/CASSANDRA-4725
 
 
 Using the Cassandra Backend
